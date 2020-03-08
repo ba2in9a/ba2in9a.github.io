@@ -271,7 +271,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/cookie/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/backup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -285,7 +285,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/06/cookie/" class="post-title-link" itemprop="url">cookie</a>
+            <a href="/2020/03/06/backup/" class="post-title-link" itemprop="url">backup</a>
         </h1>
 
         <div class="post-meta">
@@ -302,7 +302,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-08 23:21:08" itemprop="dateModified" datetime="2020-03-08T23:21:08+08:00">2020-03-08</time>
+                <time title="Modified: 2020-03-08 11:40:32" itemprop="dateModified" datetime="2020-03-08T11:40:32+08:00">2020-03-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -325,24 +325,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p><img src="https://i.imgur.com/Jrb5zzg.png" alt=""></p>
-<h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><ul>
-<li>α</li>
-</ul>
-<h4 id="使用Burpsuit进行抓包"><a href="#使用Burpsuit进行抓包" class="headerlink" title="使用Burpsuit进行抓包"></a>使用Burpsuit进行抓包</h4><p><img src="https://i.imgur.com/BBo9qRc.png" alt=""></p>
-<p><img src="https://i.imgur.com/tcIoxDK.png" alt=""></p>
-<p><img src="https://i.imgur.com/6SillS2.png" alt=""></p>
-<p><img src="https://i.imgur.com/yVu20RK.png" alt=""></p>
-<ul>
-<li>β</li>
-</ul>
-<h4 id="使用-HTTP-Header-Live-拓展"><a href="#使用-HTTP-Header-Live-拓展" class="headerlink" title="使用 HTTP Header Live 拓展"></a>使用 HTTP Header Live 拓展</h4><p><img src="https://i.imgur.com/DpPsVxr.png" alt=""></p>
-<p><img src="https://i.imgur.com/6y6f0hR.png" alt=""></p>
-<p>flag=cyberpeace{34275870cbf633cfcc2f07a54fe5b16e}</p>
-<h2 id="了解cookie"><a href="#了解cookie" class="headerlink" title="了解cookie"></a>了解cookie</h2><p>Cookie 并不是它的原意“甜饼”的意思, 而是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序 。举例来说, 一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。如果使用浏览器访问 Web, 会看到所有保存在硬盘上的  Cookie。在这个文件夹里每一个文件都是一个由“名/值”对组成的文本文件,另外还有一个文件保存有所有对应的 Web 站点的信息。在这里的每个  Cookie 文件都是一个简单而又普通的文本文件。透过文件名, 就可以看到是哪个 Web  站点在机器上放置了Cookie(当然站点信息在文件里也有保存)</p>
-<p><a href="https://segmentfault.com/a/1190000016248401" target="_blank" rel="noopener">资料1</a></p>
-<p><a href="https://www.jianshu.com/p/6fc9cea6daa2" target="_blank" rel="noopener">资料2</a></p>
+          <h1 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h1><p><img src="https://i.imgur.com/eQ1rXd0.png" alt=""></p>
+<h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><h4 id="index-php-save"><a href="#index-php-save" class="headerlink" title="index.php.save"></a>index.php.save</h4><p><img src="https://i.imgur.com/hIYytPH.png" alt=""></p>
+<h4 id="index-php-bak"><a href="#index-php-bak" class="headerlink" title="index.php.bak"></a>index.php.bak</h4><p><img src="https://i.imgur.com/XcLdGfj.png" alt=""></p>
+<p><img src="https://i.imgur.com/VcHw2Yq.png" alt=""></p>
+<pre><code>Flag=Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}</code></pre><h2 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h2><p>很多开发人员在编辑文件前，都会先进行一次备份，同时会把备份文件和源文件放在服务器上的同一个地方。这样的话，如果存在绕过身份验证，就可以直接下载到这个备份文件，从而得到网站源代码。</p>
+<h4 id="有关备份文件的可以利用的情况主要有3种"><a href="#有关备份文件的可以利用的情况主要有3种" class="headerlink" title="有关备份文件的可以利用的情况主要有3种"></a>有关备份文件的可以利用的情况主要有3种</h4><ol>
+<li><p>代码编辑器产生的备份文件</p>
+</li>
+<li><p>没有删除版本控制系统（VCS）产生的备份文件</p>
+</li>
+<li><p>没有删除开发人员手动备份的文件</p>
+</li>
+</ol>
+<h4 id="php的备份有两种"><a href="#php的备份有两种" class="headerlink" title="php的备份有两种"></a>php的备份有两种</h4><pre><code>.php~
 
+.php.bak</code></pre><h4 id="常见的备份文件后缀名"><a href="#常见的备份文件后缀名" class="headerlink" title="常见的备份文件后缀名"></a>常见的备份文件后缀名</h4><pre><code>.git
+
+.svn 
+
+.swp
+
+.svn 
+
+.~ 
+
+.bak 
+
+.bash_history</code></pre>
       
     </div>
 
@@ -483,7 +493,7 @@ Sitemap:网站地图  告诉爬虫这个页面是网站地图</code></pre><p><a 
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/backup/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/cookie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -497,7 +507,7 @@ Sitemap:网站地图  告诉爬虫这个页面是网站地图</code></pre><p><a 
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/06/backup/" class="post-title-link" itemprop="url">backup</a>
+            <a href="/2020/03/06/cookie/" class="post-title-link" itemprop="url">cookie</a>
         </h1>
 
         <div class="post-meta">
@@ -514,7 +524,7 @@ Sitemap:网站地图  告诉爬虫这个页面是网站地图</code></pre><p><a 
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-08 11:40:32" itemprop="dateModified" datetime="2020-03-08T11:40:32+08:00">2020-03-08</time>
+                <time title="Modified: 2020-03-08 23:21:08" itemprop="dateModified" datetime="2020-03-08T23:21:08+08:00">2020-03-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -537,34 +547,24 @@ Sitemap:网站地图  告诉爬虫这个页面是网站地图</code></pre><p><a 
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h1><p><img src="https://i.imgur.com/eQ1rXd0.png" alt=""></p>
-<h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><h4 id="index-php-save"><a href="#index-php-save" class="headerlink" title="index.php.save"></a>index.php.save</h4><p><img src="https://i.imgur.com/hIYytPH.png" alt=""></p>
-<h4 id="index-php-bak"><a href="#index-php-bak" class="headerlink" title="index.php.bak"></a>index.php.bak</h4><p><img src="https://i.imgur.com/XcLdGfj.png" alt=""></p>
-<p><img src="https://i.imgur.com/VcHw2Yq.png" alt=""></p>
-<pre><code>Flag=Cyberpeace{855A1C4B3401294CB6604CCC98BDE334}</code></pre><h2 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h2><p>很多开发人员在编辑文件前，都会先进行一次备份，同时会把备份文件和源文件放在服务器上的同一个地方。这样的话，如果存在绕过身份验证，就可以直接下载到这个备份文件，从而得到网站源代码。</p>
-<h4 id="有关备份文件的可以利用的情况主要有3种"><a href="#有关备份文件的可以利用的情况主要有3种" class="headerlink" title="有关备份文件的可以利用的情况主要有3种"></a>有关备份文件的可以利用的情况主要有3种</h4><ol>
-<li><p>代码编辑器产生的备份文件</p>
-</li>
-<li><p>没有删除版本控制系统（VCS）产生的备份文件</p>
-</li>
-<li><p>没有删除开发人员手动备份的文件</p>
-</li>
-</ol>
-<h4 id="php的备份有两种"><a href="#php的备份有两种" class="headerlink" title="php的备份有两种"></a>php的备份有两种</h4><pre><code>.php~
+          <h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p><img src="https://i.imgur.com/Jrb5zzg.png" alt=""></p>
+<h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><ul>
+<li>α</li>
+</ul>
+<h4 id="使用Burpsuit进行抓包"><a href="#使用Burpsuit进行抓包" class="headerlink" title="使用Burpsuit进行抓包"></a>使用Burpsuit进行抓包</h4><p><img src="https://i.imgur.com/BBo9qRc.png" alt=""></p>
+<p><img src="https://i.imgur.com/tcIoxDK.png" alt=""></p>
+<p><img src="https://i.imgur.com/6SillS2.png" alt=""></p>
+<p><img src="https://i.imgur.com/yVu20RK.png" alt=""></p>
+<ul>
+<li>β</li>
+</ul>
+<h4 id="使用-HTTP-Header-Live-拓展"><a href="#使用-HTTP-Header-Live-拓展" class="headerlink" title="使用 HTTP Header Live 拓展"></a>使用 HTTP Header Live 拓展</h4><p><img src="https://i.imgur.com/DpPsVxr.png" alt=""></p>
+<p><img src="https://i.imgur.com/6y6f0hR.png" alt=""></p>
+<p>flag=cyberpeace{34275870cbf633cfcc2f07a54fe5b16e}</p>
+<h2 id="了解cookie"><a href="#了解cookie" class="headerlink" title="了解cookie"></a>了解cookie</h2><p>Cookie 并不是它的原意“甜饼”的意思, 而是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序 。举例来说, 一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。如果使用浏览器访问 Web, 会看到所有保存在硬盘上的  Cookie。在这个文件夹里每一个文件都是一个由“名/值”对组成的文本文件,另外还有一个文件保存有所有对应的 Web 站点的信息。在这里的每个  Cookie 文件都是一个简单而又普通的文本文件。透过文件名, 就可以看到是哪个 Web  站点在机器上放置了Cookie(当然站点信息在文件里也有保存)</p>
+<p><a href="https://segmentfault.com/a/1190000016248401" target="_blank" rel="noopener">资料1</a></p>
+<p><a href="https://www.jianshu.com/p/6fc9cea6daa2" target="_blank" rel="noopener">资料2</a></p>
 
-.php.bak</code></pre><h4 id="常见的备份文件后缀名"><a href="#常见的备份文件后缀名" class="headerlink" title="常见的备份文件后缀名"></a>常见的备份文件后缀名</h4><pre><code>.git
-
-.svn 
-
-.swp
-
-.svn 
-
-.~ 
-
-.bak 
-
-.bash_history</code></pre>
       
     </div>
 
