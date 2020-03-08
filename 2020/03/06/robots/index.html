@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="robots是的，一片空白，，，  Writeup α  利用URL访问该网页的robots.txt文件 url&#x2F;robots.txt  禁止网页爬虫爬取f1ag_1s_h3re.php文件  β  利用URL访问该文件得出Flag Flag&#x3D;cyberpeace{43c9f9fbbb97040ca31aa25c7ef74811}什么是Robots协议？Robots协议（也称为爬虫协议、机器人协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="robots">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/robots/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="robots是的，一片空白，，，  Writeup α  利用URL访问该网页的robots.txt文件 url&#x2F;robots.txt  禁止网页爬虫爬取f1ag_1s_h3re.php文件  β  利用URL访问该文件得出Flag Flag&#x3D;cyberpeace{43c9f9fbbb97040ca31aa25c7ef74811}什么是Robots协议？Robots协议（也称为爬虫协议、机器人协议">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/XdXAITL.png">
+<meta property="og:image" content="https://i.imgur.com/znnvfA6.png">
+<meta property="og:image" content="https://i.imgur.com/nnTfOU9.png">
+<meta property="article:published_time" content="2020-03-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-08T03:41:05.539Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="新手练习区">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/XdXAITL.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/06/robots/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>robots | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/robots/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          robots
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-06 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-06T00:00:00+08:00">2020-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-08 11:41:05" itemprop="dateModified" datetime="2020-03-08T11:41:05+08:00">2020-03-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeup/" itemprop="url" rel="index"><span itemprop="name">Writeup</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="robots"><a href="#robots" class="headerlink" title="robots"></a>robots</h1><p>是的，一片空白，，，</p>
+<p><img src="https://i.imgur.com/XdXAITL.png" alt=""></p>
+<h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><ul>
+<li>α</li>
+</ul>
+<h4 id="利用URL访问该网页的robots-txt文件"><a href="#利用URL访问该网页的robots-txt文件" class="headerlink" title="利用URL访问该网页的robots.txt文件"></a>利用URL访问该网页的robots.txt文件</h4><p> url/robots.txt</p>
+<p><img src="https://i.imgur.com/znnvfA6.png" alt=""></p>
+<p>禁止网页爬虫爬取f1ag_1s_h3re.php文件</p>
+<ul>
+<li>β</li>
+</ul>
+<h4 id="利用URL访问该文件得出Flag"><a href="#利用URL访问该文件得出Flag" class="headerlink" title="利用URL访问该文件得出Flag"></a>利用URL访问该文件得出Flag</h4><p><img src="https://i.imgur.com/nnTfOU9.png" alt=""></p>
+<pre><code>Flag=cyberpeace{43c9f9fbbb97040ca31aa25c7ef74811}</code></pre><h2 id="什么是Robots协议？"><a href="#什么是Robots协议？" class="headerlink" title="什么是Robots协议？"></a>什么是Robots协议？</h2><p>Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。</p>
+<p>robots.txt文件是一个文本文件, 是一个协议而不是一个命令.  当爬虫访问一个站点时， 它会首先检查该站点根目录下是否存在robots.txt，如果存在，爬虫就会按照该文件中的内容来确定访问的范围；如果该文件不存在，所有的爬虫将能够访问网站上所有没有被口令保护的页面。 </p>
+<h4 id="样例"><a href="#样例" class="headerlink" title="样例:"></a>样例:</h4><pre><code>User-agent: *
+
+Disallow:  /
+
+Allow: /public/</code></pre><p>以上表明爬虫只充许爬取public目录，将上面的内容保存为robots.txt文件，放在网站的根目录下，和网站的入口文件(  index.html,index.htm等)在一起即可. </p>
+<p>配置项详解:</p>
+<p>User-agent 指定爬虫名, *代表任何爬虫。 如有多条User-agent记录，则可以限制多个爬虫，但至少需要指定一条. </p>
+<p>Disallow:不允许爬取的目录。 </p>
+<p>Allow:一般配合Disallow使用，用于排除限制。 </p>
+<p>常见的爬虫名: </p>
+<pre><code>BaiduSpider       Googlebot     360Spider     YodaoBot       ia_archiver     </code></pre><h4 id="robots-txt文件写法："><a href="#robots-txt文件写法：" class="headerlink" title="robots.txt文件写法："></a>robots.txt文件写法：</h4><pre><code>User-agent: *  这里的*代表的所有的搜索引擎种类，*是一个通配符
+
+Disallow: /admin/  这里定义是禁止爬寻admin目录下面的目录
+
+Disallow: /require/  这里定义是禁止爬寻require目录下面的目录
+
+Disallow: /ABC/  这里定义是禁止爬寻ABC目录下面的目录
+
+Disallow: /cgi-bin/.htm  禁止访问/cgi-bin/目录下的所有以&quot;.htm&quot;为后缀的URL(包含子目录)。
+
+Disallow: /?*  禁止访问网站中所有包含问号 (?) 的网址
+
+Disallow: /.jpg$  禁止抓取网页所有的.jpg格式的图片
+
+Disallow:/ab/adc.html  禁止爬取ab文件夹下面的adc.html文件。
+
+Allow: /cgi-bin/　 这里定义是允许爬寻cgi-bin目录下面的目录
+
+Allow: /tmp  这里定义是允许爬寻tmp的整个目录
+
+Allow: .htm$  仅允许访问以&quot;.htm&quot;为后缀的URL。
+
+Allow: .gif$  允许抓取网页和gif格式图片
+
+Sitemap:网站地图  告诉爬虫这个页面是网站地图</code></pre><p><a href="https://blog.csdn.net/zhangyingchengqi/article/details/83348900" target="_blank" rel="noopener">https://blog.csdn.net/zhangyingchengqi/article/details/83348900</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0%E5%8C%BA/" rel="tag"># 新手练习区</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/06/view_source/" rel="prev" title="view_source">
+      <i class="fa fa-chevron-left"></i> view_source
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/06/backup/" rel="next" title="backup">
+      backup <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#robots"><span class="nav-number">1.</span> <span class="nav-text">robots</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Writeup"><span class="nav-number">1.1.</span> <span class="nav-text">Writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用URL访问该网页的robots-txt文件"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">利用URL访问该网页的robots.txt文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用URL访问该文件得出Flag"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">利用URL访问该文件得出Flag</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Robots协议？"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Robots协议？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">样例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#robots-txt文件写法："><span class="nav-number">1.2.0.2.</span> <span class="nav-text">robots.txt文件写法：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

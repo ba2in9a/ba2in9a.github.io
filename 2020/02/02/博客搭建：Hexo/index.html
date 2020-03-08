@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Hexo 博客框架00 安装 Node.js   https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;选择 LTS（长期支持版） 以管理员方式打开cmd注：runas &#x2F;user:administrator &quot;cmd&#x2F;k&quot;01 查看版本 node -v npm -v02 安装cnpm    npm install -g cnpm –reistry&#x3D;https:&#x2F;&#x2F;registr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客搭建:Github Pages+Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/02/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%9AHexo/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo 博客框架00 安装 Node.js   https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F;选择 LTS（长期支持版） 以管理员方式打开cmd注：runas &#x2F;user:administrator &quot;cmd&#x2F;k&quot;01 查看版本 node -v npm -v02 安装cnpm    npm install -g cnpm –reistry&#x3D;https:&#x2F;&#x2F;registr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/UIIq7FV.png">
+<meta property="og:image" content="https://i.imgur.com/QDN9AwO.png">
+<meta property="article:published_time" content="2020-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-08T03:44:12.132Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/UIIq7FV.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%9AHexo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>博客搭建:Github Pages+Hexo | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%9AHexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客搭建:Github Pages+Hexo
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-02T00:00:00+08:00">2020-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-08 11:44:12" itemprop="dateModified" datetime="2020-03-08T11:44:12+08:00">2020-03-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://i.imgur.com/UIIq7FV.png" alt=""></p>
+<h1 id="Hexo-博客框架"><a href="#Hexo-博客框架" class="headerlink" title="Hexo 博客框架"></a>Hexo 博客框架</h1><p>00 安装 Node.js  </p>
+<pre><code>https://nodejs.org/zh-cn/</code></pre><p>选择 LTS（长期支持版）</p>
+<h2 id="以管理员方式打开cmd"><a href="#以管理员方式打开cmd" class="headerlink" title="以管理员方式打开cmd"></a>以管理员方式打开cmd</h2><pre><code>注：runas /user:administrator &quot;cmd/k&quot;</code></pre><p>01 查看版本</p>
+<pre><code>node -v
+npm -v</code></pre><p>02 安装cnpm<br>    npm install -g cnpm –reistry=<a href="https://registry.npm.taobo.org" target="_blank" rel="noopener">https://registry.npm.taobo.org</a></p>
+<p>注：淘宝镜像源</p>
+<pre><code>cnpm -v</code></pre><p>03 全局安装hexo-cli</p>
+<pre><code>cnpm install -g hexo-cli
+
+hexo -v            查看  hexo-cli项 与 node项</code></pre><h2 id="C-Users-administertor路径下新建文件夹blog"><a href="#C-Users-administertor路径下新建文件夹blog" class="headerlink" title="C:\Users\administertor路径下新建文件夹blog"></a>C:\Users\administertor路径下新建文件夹blog</h2><p>如果将来出错，干掉它！</p>
+<p>重新来过</p>
+<p>04 cd blog</p>
+<pre><code>hexo init      初始化博客
+
+hexo server    启动博客</code></pre><p>###本地预览###</p>
+<pre><code>http://localhost:4000</code></pre><p>操作成功之后会出现博客界面</p>
+<p><img src="https://i.imgur.com/QDN9AwO.png" alt=""></p>
+<p>恭喜你，即将成功</p>
+<p>###新建博文###<br>    hexo new “新建文章名称”</p>
+<p>05 接下来就需要创作和编辑内容了（请自行学习）</p>
+<pre><code> cd ../..    重新生成，退回至blog 目录
+
+
+hexo clean
+
+hexo generate
+
+hexo server （重新启动）</code></pre><p>本地启动完成</p>
+<pre><code>Ctrl+c 结束</code></pre><h2 id="通过Github部署至远端"><a href="#通过Github部署至远端" class="headerlink" title="通过Github部署至远端"></a>通过Github部署至远端</h2><p>06 新建一个仓库  New repository</p>
+<pre><code>Repository name   用户名.github.io</code></pre><p>Create repository</p>
+<p>07 blog目录下安装Git部署插件</p>
+<pre><code>cnpm install hexo-deployer-git --save</code></pre><p>08 设置_config.yml文件</p>
+<pre><code>notepad _config.yml
+
+type: git
+repo: 仓库地址
+branch: master</code></pre><h2 id="部署至远端"><a href="#部署至远端" class="headerlink" title="部署至远端"></a>部署至远端</h2><pre><code>hexo d</code></pre><p>09 输入Github账号，密码</p>
+<p>注意：需提前git设置用户名和邮箱地址</p>
+<pre><code>$ git config --global user.name &quot;John Doe&quot;
+$ git config --global user.email &quot;johndoe@example.com&quot;</code></pre><p>###拓展——更换博客主题###</p>
+<p>例：在blog目录中下载主题</p>
+<pre><code>git clone https://github.com/litten/hexo-yilia.git themes/yilia</code></pre><p>  哎，clone的贼慢，太难了</p>
+<p>10 修改_config.yml文件</p>
+<pre><code>notepad _config.yml</code></pre><p>theme: landscape&gt;&gt;&gt;yilia 更改主题名称</p>
+<pre><code>hexo clean
+hexo generate
+hexo server    
+
+hexo deploy</code></pre><h2 id="感谢-codesheep-cn"><a href="#感谢-codesheep-cn" class="headerlink" title="感谢 codesheep.cn"></a>感谢 <a href="www.codesheep.cn">codesheep.cn</a></h2><p> <a href="https://www.bilibili.com/video/av44544186?t=1644" target="_blank" rel="noopener">视频教程链接</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/31/CTF-Web%E6%8A%80%E8%83%BD%E6%A0%91/" rel="prev" title="You jump,I jump!If you jump,I will not jump with you.">
+      <i class="fa fa-chevron-left"></i> You jump,I jump!If you jump,I will not jump with you.
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/05/Vmware%E5%AE%89%E8%A3%85Android-X86/" rel="next" title="VMware安装Android X86">
+      VMware安装Android X86 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-博客框架"><span class="nav-number">1.</span> <span class="nav-text">Hexo 博客框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以管理员方式打开cmd"><span class="nav-number">1.1.</span> <span class="nav-text">以管理员方式打开cmd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Users-administertor路径下新建文件夹blog"><span class="nav-number">1.2.</span> <span class="nav-text">C:\Users\administertor路径下新建文件夹blog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过Github部署至远端"><span class="nav-number">1.3.</span> <span class="nav-text">通过Github部署至远端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署至远端"><span class="nav-number">1.4.</span> <span class="nav-text">部署至远端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感谢-codesheep-cn"><span class="nav-number">1.5.</span> <span class="nav-text">感谢 codesheep.cn</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
